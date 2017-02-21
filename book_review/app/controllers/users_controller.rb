@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :load_user, only: [:show, :destroy] 
   
   def index
-    @users = User.paginate page: params[:page]
+    @users = User.search_users(params[:search]).paginate page: params[:page]
   end
 
   def new

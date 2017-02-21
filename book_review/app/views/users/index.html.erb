@@ -1,15 +1,15 @@
 <% provide :title, t(".all_user") %>
 <h1><%= t ".all_user" %></h1>
-
-<ul class="users">
-  <% @users.each do |user| %>
-    <li>
-      <%= gravatar_for user, size: 50 %>
-      <%= link_to user.name, user %>
-      <% if current_user.is_admin? && !current_user.current_user?(user) %>
-        | <%= link_to t(".delete"), user, method: :delete,
-          data: {confirm: t(".you_sure")} %>
+  <div class="col-md-12">
+    <div class="form-inline col-md-4 search">
+      <%= form_tag users_path, remote: true,  method: :get do %>
+        <div class= " col-md-7 "><%= text_field_tag :search, params[:search],
+          placeholder: t(".name"), class: "form-control" %></div>
+        <div class= "submit_tag col-md-4 btn_submit "><%= submit_tag t(".submit"), 
+          class: "btn btn-primary" %></div>
       <% end %>
-    </li>
-  <% end %>
-</ul>
+    </div>
+  </div>
+<div class="list_users">
+  <%= render @users %>
+</div>

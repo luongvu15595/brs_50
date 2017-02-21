@@ -1,0 +1,36 @@
+<tr>
+  <td class ="center">  
+    <%= category.name %>
+  </td>
+  <td>
+    <button type="button" class="btn btn-info " data-toggle="modal" 
+      data-target="#item-<%= category.id %>"><%= t ".edit" %></button>
+    <%= link_to t(".delete"), 
+      admin_category_path(category), method: :delete, 
+      data: {confirm: t(".confirm")}, 
+      class: "btn btn-danger" %>
+  </td>
+</tr>
+<div class="modal fade" id="item-<%= category.id %>">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-warning">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"><%= t ".edit_cate" %></h4>
+      </div>
+      <div class="modal-body height">
+        <%= form_for [:admin, category] do |f| %>
+          <span class="center col-md-7">
+            <%= f.text_field :name, class: "form-control" %>
+          </span>
+          <span class="center col-md-2" > <%= f.submit t(".update"), 
+            class: "btn btn-primary " %></span>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default " 
+          data-dismiss="modal"><%= t".close" %></button>
+      </div>
+    </div>
+  </div>
+</div>

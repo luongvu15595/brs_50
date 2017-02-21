@@ -20,6 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  all_category: "All Category"
   not_new_user: "Can't new user"
   unfollow: "Unfollow"
   follow: "follow"
@@ -94,6 +95,7 @@ en:
       request: "All Request Book"
       users: "Users"
       all_book: "All book"
+      all: "All Categories"
   shared:
     stats:
       following: "following"
@@ -103,8 +105,13 @@ en:
       all_user: "All users"
       delete: "delete"
       you_sure: "You sure"
+      name: "name"
+      submit: "submit"
     show_follow:
       view: "view my profile"
+    list_user:
+      delete: "delete"
+      you_sure: "Are you want delete user?"
 
   book:
     list_book:
@@ -168,6 +175,17 @@ en:
         user: "User"
         accept: "accept"
         refuse: "refuse"
+    categories: 
+      category:
+        edit: "edit"
+        delete: "delete"
+        confirm: "Are you want delete category"
+        edit_cate: "Edit Category"
+        update: "update"
+        close: "Close"
+      index: 
+        new: "new category"
+        name: "Category name"
   books:
     index:
       search: "Search for author,title"

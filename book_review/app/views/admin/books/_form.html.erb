@@ -1,7 +1,9 @@
 <%= form_for [:admin, @book], html: {multipart: true} do |f| %>
   <%= render "shared/error_messages", target: @book %>
   <%= f.label :category %>
-  <%= f.select :category_id, @categories, prompt: t(".category") %>
+  <%= f.select :category_id, options_for_select(@categories), 
+    {prompt: t(".category")},
+    {class: "form form-group form-control"} %>
   
   <%= f.label :image %>
   <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png",
@@ -9,9 +11,6 @@
   
   <%= f.label :title %>
   <%= f.text_field :title, class: "form-control" %>
-
-  <%= f.label :description %>
-  <%= f.text_field :description, class: "form-control" %>
 
   <%= f.label :author %>
   <%= f.text_field :author, class: "form-control" %>
@@ -21,6 +20,9 @@
   
   <%= f.label :publish_date %>
   <%= f.date_field :publish_date, class: "form-control" %>
+  
+  <%= f.label :description %>
+  <%= f.text_area :description, class: "form-control "%>
   
   <%= f.submit t(".save"), class: "btn btn-primary" %>
 <% end %>
